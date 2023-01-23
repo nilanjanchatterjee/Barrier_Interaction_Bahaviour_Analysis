@@ -1,8 +1,8 @@
-# Name of App *(Give your app a short and informative title. Please adhere to our convention of Title Case without hyphens (e.g. My New App))*
+# Barrier Interaction Behaviour Analysis*
 
 MoveApps
 
-Github repository: *github.com/yourAccount/Name-of-App* *(the link to the repository where the code of the app can be found must be provided)*
+Github repository: https://github.com/nilanjanchatterjee/Barrier_Interaction_Bahaviour_Analysis
 
 ## Description
 *Enter here the short description of the App that might also be used when filling out the description when submitting the App to Moveapps. This text is directly presented to Users that look through the list of Apps when compiling Workflows.*
@@ -11,22 +11,24 @@ Github repository: *github.com/yourAccount/Name-of-App* *(the link to the reposi
 *Enter here a detailed description of your App. What is it intended to be used for. Which steps of analyses are performed and how. Please be explicit about any detail that is important for use and understanding of the App and its outcomes.*
 
 ### Input data
-*Indicate which type of input data the App requires. Currently only R objects of class `MoveStack` can be used. This will be extend in the future.*
-
-*Example*: MoveStack in Movebank format
+*move/moveStack* in Movebank format
+*Linear feature layers* in Shapefile(.shp) format
 
 ### Output data
-*Indicate which type of output data the App produces to be passed on to subsequent apps. Currently only R objects of class `MoveStack` can be used. This will be extend in the future. In case the App does not pass on any data (e.g. a shiny visualization app), it can be also indicated here that no output is produced to be used in subsequent apps.*
-
-*Example:* MoveStack in Movebank format
+*MoveStack* in Movebank format
+*Road encounter* in .csv format
 
 ### Artefacts
-*If the App creates artefacts (e.g. csv, pdf, jpeg, shapefiles, etc), please list them here and describe each.*
+- Encounter_event_data.csv: Details of the identified behaviours
+- Encounter_data.csv : Details of the road encounters 
+- Event_plot_output.pdf: Document of plot of all identified behaviors 
 
-*Example:* `rest_overview.csv`: csv-file with Table of all rest site properties
 
 ### Parameters 
-*Please list and define all parameters that the App requires to be set, if necessary including their unit.*
+buffer: Distance to evaluate the effect of the linear feature/Barrier. Unit: `metres`. 
+b_time: Maximum duration, that an encounter event would be considered as a short event *bounce* or *quick cross*. Unit: `hours`
+p_time: Minimum duration, that an encounter event would be considered as a *trapped* condition. Unit: `hours`
+w:
 
 *Example:* `radius`: Defined radius the animal has to stay in for a given duration of time for it to be considered resting site. Unit: `metres`.
 
