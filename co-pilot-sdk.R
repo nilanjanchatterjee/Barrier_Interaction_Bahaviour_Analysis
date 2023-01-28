@@ -2,10 +2,11 @@
 ## input/output ## adjust!
 ##################
 ## Provided testing datasets in `./data/raw`: 
-## "input1_pigeons.rds", "input2_geese.rds", "input3_stork.rds", "input4_goat.rds"  
+## "input1_pigeons.rds", "input2_geese.rds", "input3_stork.rds", "input4_goat.rds", "South_slave_caribou.rds"  
 ## for own data: file saved as a .rds containing a object of class MoveStack
-inputFileName = "./data/raw/input2_geese.rds" 
+#inputFileName = "./data/raw/South_slave_caribou.rds" 
 
+inputFileName = "./data/raw/Input_Hebblewhite_Alberta_BC_Wolves.rds" 
 ## optionally change the output file name
 unlink("./data/output/", recursive = TRUE) # delete "output" folder if it exists, to have a clean start for every run
 dir.create("./data/output/") # create a new output folder
@@ -24,7 +25,10 @@ outputFileName = "./data/output/output.rds"
 
 args <- list() # if your function has no arguments, this line still needs to be active
 # Add all your arguments of your r-function here
-args[["year"]] = 2014 
+args[["buffer"]] = 1000
+args[["b_time"]] = 4
+args[["p_time"]] = 36
+args[["w"]] = 72
 
 ##############################
 ## source, setup & simulate ## leave as is!
