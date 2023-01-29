@@ -1,6 +1,6 @@
-# Barrier Interaction Behaviour Analysis*
+# Barrier Interaction Behaviour Analysis
 
-MoveApps
+MoveApps 
 
 Github repository: https://github.com/nilanjanchatterjee/Barrier_Interaction_Bahaviour_Analysis
 
