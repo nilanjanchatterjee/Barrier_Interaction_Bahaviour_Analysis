@@ -33,4 +33,4 @@ w: The length of time, to include around the encounter event to calculate averag
 ### Null or error handling
 *The app contains road shapefile from the Y2Y region but users can upload their own shapefiles also. Please be careful that the projection of the barrier feature shapefile should be lat-long (epsg 4326). Moreover, the identified behaviours are function of the user specified input (buffer and time), please be careful and use time intervals with respect to the fix-intervals.*
 
-*Example* : **Parameter** `b_time` should not be smaller than the fix-intervals. If your data set has very different fix-intervals please create multiple workflows of individuals with similar fix-intervals.
+*Example* : **Parameter `b_time`**:  should not be smaller than the fix-intervals. If your data set has very different fix-intervals please create multiple workflows of individuals with similar fix-intervals.
