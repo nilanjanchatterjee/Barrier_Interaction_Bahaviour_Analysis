@@ -1,5 +1,32 @@
 {
-  "settings": [
+  "settings": [{
+      "id": "buffer",
+      "name": "Distance buffer for features in meters",
+      "description": "Specify a buffer distance with the feature to identify different behaviour. Be careful with the distance as different species behave differently to the feature.",
+      "defaultValue": 500,
+      "type": "DOUBLE"
+    },
+    {
+      "id": "b_time",
+      "name": "Maximum time for encounter events for crossing in hours",
+      "description": "Maximum duration, that an encounter event would be considered as a short event bounce or quick cross.",
+      "defaultValue": 4,
+      "type": "DOUBLE"
+    },
+    {
+      "id": "p_time",
+      "name": "Minimum time for encounter events for trapped in hours",
+      "description": "Specify a minimum duration, that an encounter event would be considered as a trapped condition.",
+      "defaultValue": 36,
+      "type": "DOUBLE"
+    },
+    {
+      "id": "w",
+      "name": "Buffer time around encounter events in hours",
+      "description": "The length of time, to include around the encounter event to calculate average movement straightness using a moving window. Locations included are all locations within `w/2` before the first location of the encounter event and `w/2` after the last location of the event.",
+      "defaultValue": 72,
+      "type": "DOUBLE"
+    }
     ],
     
   "dependencies": {
