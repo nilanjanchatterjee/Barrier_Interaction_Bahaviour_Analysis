@@ -30,9 +30,7 @@ b_time: Maximum duration, that an encounter event would be considered as a short
 p_time: Minimum duration, that an encounter event would be considered as a *trapped* condition. Unit: `hours`   
 w: The length of time, to include around the encounter event to calculate average movement straightness using a moving window. Locations included are all locations within `w/2` before the first location of the encounter event and `w/2` after the last location of the event.
 
-*Example:* `radius`: Defined radius the animal has to stay in for a given duration of time for it to be considered resting site. Unit: `metres`.
-
 ### Null or error handling
-*Please indicate for each parameter as well as the input data which behaviour the App is supposed to show in case of errors or NULL values/input. Please also add notes of possible errors that can happen if parameters are improperly set and any other important information that you find the user should be aware of.*
+*The app contains road shapefile from the Y2Y region but users can upload their own shapefiles also. Please be careful that the projection of the barrier feature shapefile should be lat-long (epsg 4326). Moreover, the identified behaviours are function of the user specified input (buffer and time), please be careful and use time intervals with respect to the fix-intervals.*
 
-*Example:* **Parameter `radius`:** If no radius AND no duration are given, the input data set is returned with a warning. If no radius is given (NULL), but a duration is defined then a default radius of 1000m = 1km is set. 
+*Example* : **Parameter** `b_time` should not be smaller than the fix-intervals. If your data set has very different fix-intervals please create multiple workflows of individuals with similar fix-intervals.
