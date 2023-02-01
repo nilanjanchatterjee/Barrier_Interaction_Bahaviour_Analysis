@@ -26,8 +26,20 @@
       "description": "The length of time, to include around the encounter event to calculate average movement straightness using a moving window. Locations included are all locations within `w/2` before the first location of the encounter event and `w/2` after the last location of the event.",
       "defaultValue": 72,
       "type": "DOUBLE"
+    },
+    {
+      "id": "barrier_files",
+      "name": "Road files",
+      "description": "You can upload local files for running the barrier intersection behaviour analysis. Make sure that they overlap with the tracking data set and are in WGS 84 projection! The App requires the following files, named exactly as given: 1. `roads.cpg`, 2. `roads.dbf`, 3. `roads.prj`, 4. `roads.shp`, 5. `roads.shx`. Note that fallback road files are provided, but they span only the Yukon to Yellowstone Region (Y2Y).",
+      "type": "LOCAL_FILE"
     }
     ],
+     "providedAppFiles": [
+    {
+      "settingId": "barrier_files",
+      "from": "data/GRIP_roads_NASAY2Y/"
+    }
+  ],
     
   "dependencies": {
     "R": [
