@@ -4,7 +4,7 @@ library(move)
 library(ggplot2)
 library(dplyr)
 
-rFunction <-function(data, buffer=1000, b_time=4, p_time=36, w=72,
+rFunction <-function(data, barrier_files = NULL, buffer=1000, b_time=4, p_time=36, w=72,
                      max_cross = 1,  sd_multiplier = 1,units = "hours")
 {
   Sys.setenv(tz="UTC")
@@ -52,7 +52,8 @@ rFunction <-function(data, buffer=1000, b_time=4, p_time=36, w=72,
   }
   
   ### Loading the road data and cropping according to the bounding box of the data
-  roads <- st_read("./data/GRIP_roads_NASAY2Y/GRIP_roads_NASAY2Y.shp")
+  #roads <- st_read("./data/GRIP_roads_NASAY2Y/GRIP_roads_NASAY2Y.shp")
+  roads <- st_read(paste0(getAppFilePath("barrier_files"),"roads.shp"))
   roads_crop <- st_crop(roads, st_bbox(data))
   roads_buffer <-st_buffer(roads_crop, dist= buffer)
   
@@ -301,11 +302,13 @@ rFunction <-function(data, buffer=1000, b_time=4, p_time=36, w=72,
                         mean(straightnesses_i) + sd_multiplier *0.01)
         lower <- ifelse(is.na(sd(straightnesses_i, na.rm=T)) == FALSE, mean(straightnesses_i, na.rm=T) - sd_multiplier * sd(straightnesses_i, na.rm=T),
                         mean(straightnesses_i) - sd_multiplier *0.01)
-        if(is.na(lower) & is.na(upper) == FALSE) {
+        if(is.na(lower) & is.na(upper) == FALSE) 
+        {event_df[i, ]$eventTYPE = "unknown"}
+        else{
         if(straightness_i < lower) event_df[i, ]$eventTYPE <- ifelse(event_i$cross < max_cross, "Back_n_forth", "unknown")
         if(straightness_i > upper) event_df[i, ]$eventTYPE <- ifelse(event_i$cross < max_cross, "Trace", "unknown")
         if(straightness_i >= lower & event_i$straightness <= upper) event_df[i, ]$eventTYPE <- "Average_Movement"
-        } else {event_df[i, ]$eventTYPE = "unknown"}
+        } 
       } else {
         event_df[i, ]$eventTYPE = "unknown"
         if(is.null(straightnesses_i)) {straightnesses_i <- NA} # adding this to avoid warning message when ploting.
