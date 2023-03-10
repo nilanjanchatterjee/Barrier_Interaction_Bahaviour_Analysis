@@ -1,36 +1,36 @@
 {
   "settings": [{
       "id": "buffer",
-      "name": "Distance buffer for features in meters",
-      "description": "Specify a buffer distance with the feature to identify different behaviour. Be careful with the distance as different species behave differently to the feature.",
+      "name": "Distance buffer (in meters)",
+      "description": "Specify the buffer distance between the animal and the feature to use for evaluating barrier behaviours. Be careful to consider how this distance might vary for different species.",
       "defaultValue": 500,
       "type": "DOUBLE"
     },
     {
       "id": "b_time",
-      "name": "Maximum time for encounter events for crossing in hours",
-      "description": "Maximum duration, that an encounter event would be considered as a short event bounce or quick cross.",
+      "name": "Maximum time for short encounter events (in hours)",
+      "description": "Specify the maximum duration of an encounter event that would be considered a short 'bounce' or 'quick cross' event. This value must be at least 2x the fix interval of the tracking data to identify 'quick cross' events, and at least 3x the fix interval to identify 'bounce' events.",
       "defaultValue": 4,
       "type": "DOUBLE"
     },
     {
       "id": "p_time",
-      "name": "Minimum time for encounter events for trapped in hours",
-      "description": "Specify a minimum duration, that an encounter event would be considered as a trapped condition.",
+      "name": "Minimum time for 'trapped' encounter events (in hours)",
+      "description": "Specify the minimum duration of an encounter event for which the animal would be considered to be in a 'trapped' condition. Take into account the fix interval of the tracking data.",
       "defaultValue": 36,
       "type": "DOUBLE"
     },
     {
       "id": "w",
-      "name": "Buffer time around encounter events in hours",
-      "description": "The length of time, to include around the encounter event to calculate average movement straightness using a moving window. Locations included are all locations within `w/2` before the first location of the encounter event and `w/2` after the last location of the event.",
+      "name": "Buffer time around encounter events (in hours)",
+      "description": "Specify the length of time `w` around the encounter event over which to calculate average movement straightness using a moving window. These calculations will include all locations within `w/2` before the first location of the encounter event and `w/2` after the last location of the event.",
       "defaultValue": 72,
       "type": "DOUBLE"
     },
     {
       "id": "barrier_files",
-      "name": "Road files",
-      "description": "You can upload local files for running the barrier intersection behaviour analysis. Make sure that they overlap with the tracking data set and are in WGS 84 projection! The App requires the following files, named exactly as given: 1. `roads.cpg`, 2. `roads.dbf`, 3. `roads.prj`, 4. `roads.shp`, 5. `roads.shx`. Note that fallback road files are provided, but they span only the Yukon to Yellowstone Region (Y2Y).",
+      "name": "Feature shapefile",
+      "description": "Optionally, upload a shapefile containing linear features to use for the barrier intersection behaviour analysis. Make sure that they overlap with the tracking data and are in WGS84 projection! The App requires the following files, named exactly as given: 1. `roads.cpg`, 2. `roads.dbf`, 3. `roads.prj`, 4. `roads.shp`, 5. `roads.shx`. Note that fallback road files are provided, but they span only the Yukon to Yellowstone Region (Y2Y).",
       "type": "LOCAL_FILE"
     }
     ],
